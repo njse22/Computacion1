@@ -9,7 +9,7 @@ public class PeerC {
         try {
             DatagramSocket socket = new DatagramSocket();
             String msj = "Hola desde PeerC";
-            InetAddress ipAddress = InetAddress.getByName("127.0.0.1");
+            InetAddress ipAddress = InetAddress.getByName("172.30.183.248");
 
             // Empaquetador de la información
             // Encapsulamiento de los datos

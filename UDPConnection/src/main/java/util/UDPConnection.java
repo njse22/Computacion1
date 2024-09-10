@@ -51,21 +51,23 @@ public class UDPConnection extends Thread {
 
     public void sendDatagram(String msj, String ipDest, int portDest){
         // Envio de Infromación
-        try {
-            InetAddress ipAddress = InetAddress.getByName(ipDest);
+        new Thread( () -> {
+            try {
+                InetAddress ipAddress = InetAddress.getByName(ipDest);
 
-            // Empaquetador de la información
-            // Encapsulamiento de los datos
-            //                                         el mensaje     | length     | ip dest  | puerto destino
-            DatagramPacket packet = new DatagramPacket(msj.getBytes(), msj.length(), ipAddress, portDest);
-            // envia la información
-            socket.send(packet);
+                // Empaquetador de la información
+                // Encapsulamiento de los datos
+                //                                         el mensaje     | length     | ip dest  | puerto destino
+                DatagramPacket packet = new DatagramPacket(msj.getBytes(), msj.length(), ipAddress, portDest);
+                // envia la información
+                socket.send(packet);
 
-        } catch (SocketException | UnknownHostException e) {
+            } catch (SocketException | UnknownHostException e) {
 
-        } catch (IOException e) {
+            } catch (IOException e) {
 
-        }
+            }
+        }).start();
     }
 
 }
