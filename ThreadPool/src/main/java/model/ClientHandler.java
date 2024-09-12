@@ -20,10 +20,13 @@ public class ClientHandler implements Runnable {
 
             String msg = "";
             while ( (msg = reader.readLine()) != null){
-                System.out.println("Cliente: " + msg);
-                // Echo response
-                writer.println("ECHO >>>>" + msg);
+                // Mensaje del Cliente --> Servidor
+                System.out.println(socket.getInetAddress() + " : Cliente: " + msg + " " );
+                // Echo response, del Servidor --> Cliente
+                writer.println("ECHO >> " + msg + " IP cliente: " + socket.getInetAddress());
             }
+            System.out.println("Conexión del cliente finalizada");
+            writer.close();
             reader.close();
             socket.close();
 

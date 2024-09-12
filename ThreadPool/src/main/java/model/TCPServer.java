@@ -18,15 +18,17 @@ public class TCPServer {
 
             while (true){
                 // aceptar la conexión del cliente
+                System.out.println("Esperando conexión ...");
                 Socket socket = serverSocket.accept();
-                System.out.println("Cliente conectado");
+                System.out.println("Cliente conectado desde la IP: " + socket.getInetAddress()
+                        + " Con el Puerto: " + socket.getPort());
 
                 // delega a un ThreadPool la lectura de mensajes ( solicitud )
                 pool.execute(new ClientHandler(socket));
             }
 
         }catch (IOException e){
-
+            e.printStackTrace();
         }
         finally {
             pool.shutdown();
