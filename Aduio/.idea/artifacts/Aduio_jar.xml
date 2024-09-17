@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Aduio:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Aduio_jar</output-path>
+    <root id="archive" name="Aduio.jar">
+      <element id="module-output" name="Aduio" />
+    </root>
+  </artifact>
+</component>
