@@ -51,7 +51,9 @@ include 'server'
 
 ### Arquitectura con Ice:
 
-![Diagramas-Page-18.svg](/home/i2t/Git/icesi/ComputacionI/Computacion1/PublisherSuscriberIce/doc/Diagramas-Page-18.svg)
+![](./doc/Diagramas-Page-18.svg)
+
+
 
 App.ice
 
