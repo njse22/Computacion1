@@ -13,7 +13,7 @@ public class PublisherI implements Demo.Publisher {
 
     @Override
     public void addSuscriber(String name, SuscriberPrx suscriber, Current current){
-	System.out.println("New Suscriber: ");
+	System.out.println("New Suscriber: "+ name );
 	suscribers.put(name, suscriber); 
 
     }
@@ -21,7 +21,7 @@ public class PublisherI implements Demo.Publisher {
     @Override
     public void removeSuscriber(String name, Current current){
 	suscribers.remove(name); 
-	System.out.println("Suscriber has been removed ");
+	System.out.println("Suscriber has been removed "+ name );
     }
 
     public void notifySuscriber(String name, String msg){

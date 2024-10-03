@@ -2,6 +2,8 @@ import com.zeroc.Ice.*;
 import Demo.SuscriberPrx;
 import Demo.PublisherPrx;
 
+import java.io.*;
+
 public class Client {
     public static void main(String[] args) {
 
@@ -9,6 +11,11 @@ public class Client {
 	//  La conexión general con Ice en Java  //
 	///////////////////////////////////////////
        try(Communicator communicator = Util.initialize(args, "properties.cfg") ) {
+
+	   System.out.println("Give me a name: "); 
+	   BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	   String name = reader.readLine();
+	   reader.close();
 
 	   // Necesitamos un adapter para exponer los servicios del cleinte 
 	   ObjectAdapter adapter = communicator.createObjectAdapter("Suscriber");
@@ -25,6 +32,17 @@ public class Client {
 	   SuscriberPrx suscriberPrx = SuscriberPrx.checkedCast(proxy);
 	   PublisherPrx publisher = PublisherPrx.checkedCast(communicator.propertyToProxy("publisher.proxy"));
 
+	   if(publisher == null){
+	       throw new Error("Publisher is Null"); 
+	   }
+
+
+	   publisher.addSuscriber(name, suscriberPrx);
+	   communicator.waitForShutdown();
+
+       }
+       catch(IOException e){
+	   e.printStackTrace();
        }
     }
 }
