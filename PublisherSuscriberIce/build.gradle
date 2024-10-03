@@ -30,7 +30,7 @@ subprojects {
         manifest {
             attributes(
                 "Main-Class": project.name.capitalize(),
-                "Class-Path": configurations.runtimeClasspath.resolve().collect { it.toURI() }.join(' ')
+                "Class-Path": './dependencies/ice-3.7.9.jar'
             )
         }
     }
