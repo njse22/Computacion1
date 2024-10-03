@@ -24,14 +24,28 @@ subprojects {
 
     dependencies {
         implementation 'com.zeroc:ice:3.7.4'
+	// https://mvnrepository.com/artifact/com.google.code.gson/gson
+	implementation 'com.google.code.gson:gson:2.10.1'
     }
 
+    // Tarea para agregar las dependencias al lib donde esta el ejecutable de 
+    // cada proyecto
+    task copyIceJar(type: Copy) {
+	from configurations.runtimeClasspath
+	include 'ice-3.7.4.jar'
+	include 'gson-2.10.1.jar'
+	into "$buildDir/libs"
+    }
+
+    jar.dependsOn copyIceJar
+
+    // definir en el class-path que cada librería esta en el libs 
     jar {
         manifest {
             attributes(
                 "Main-Class": project.name.capitalize(),
-                "Class-Path": '/opt/Ice-3.7.6/lib/ice-3.7.6.jar'
-            )
+                "Class-Path": configurations.runtimeClasspath.files.collect { "${it.name}" }.join(' ') 
+		)
         }
     }
 }
