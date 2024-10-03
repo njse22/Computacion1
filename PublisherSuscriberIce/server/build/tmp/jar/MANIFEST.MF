@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: Server
+Class-Path: file:/home/i2t/.gradle/caches/modules-2/files-2.1/com.zeroc/
+ ice/3.7.4/46f9da2c13cc2f493b5190a89c181fb1fef5b64f/ice-3.7.4.jar
+
