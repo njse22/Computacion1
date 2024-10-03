@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Main-Class: Client
-Class-Path: ./dependencies/ice-3.7.9.jar
+Class-Path: /opt/Ice-3.7.6/lib/ice-3.7.6.jar
 

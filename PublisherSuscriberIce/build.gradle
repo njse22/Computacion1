@@ -30,7 +30,7 @@ subprojects {
         manifest {
             attributes(
                 "Main-Class": project.name.capitalize(),
-                "Class-Path": './dependencies/ice-3.7.9.jar'
+                "Class-Path": '/opt/Ice-3.7.6/lib/ice-3.7.6.jar'
             )
         }
     }
