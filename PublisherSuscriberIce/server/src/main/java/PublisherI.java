@@ -28,4 +28,5 @@ public class PublisherI implements Demo.Publisher {
 	SuscriberPrx suscriber = suscribers.get(name); 
 	suscriber.onUpdate(msg);
     }
+
 }

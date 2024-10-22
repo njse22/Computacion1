@@ -9,10 +9,10 @@ public class ClientTCP {
 
     public static void main(String[] args) {
         TCPConnection clientConnection = TCPConnection.getInstance();
-        clientConnection.initAsClient("127.0.0.1", 5000);
+        clientConnection.initAsClient("172.16.0.2", 5000);
 
         clientConnection.setListener( message -> {
-            System.out.println(message);
+            System.out.println("Server Say: " + message);
         });
 
         clientConnection.start();

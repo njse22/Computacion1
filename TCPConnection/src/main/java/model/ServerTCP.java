@@ -34,7 +34,7 @@ public class ServerTCP implements TCPConnection.OnMessageReceivedListener {
 
     @Override
     public void onMessageReceived(String msg) {
-        System.out.println(msg);
+        System.out.println("Client say: "+msg);
     }
 
 

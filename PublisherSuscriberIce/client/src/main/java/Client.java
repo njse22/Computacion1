@@ -29,7 +29,11 @@ public class Client {
 	
 	   // Recuperamos los objetos (que tienen servicios) que han sido expuestos por 
 	   // otros 
+
+	   // Se recupera el Suscriber del mismo cliente 
 	   SuscriberPrx suscriberPrx = SuscriberPrx.checkedCast(proxy);
+
+	   // Se recupera el Publisher del servidor
 	   PublisherPrx publisher = PublisherPrx.checkedCast(communicator.propertyToProxy("publisher.proxy"));
 
 	   if(publisher == null){
@@ -38,6 +42,8 @@ public class Client {
 
 
 	   publisher.addSuscriber(name, suscriberPrx);
+
+	   publisher.onEcho("Hola desde: " + name);
 	   communicator.waitForShutdown();
 
        }

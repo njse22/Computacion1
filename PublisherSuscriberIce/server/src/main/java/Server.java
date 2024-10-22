@@ -26,6 +26,7 @@ public class Server {
             PublisherI publisher = new PublisherI();
 
             // Agregar los servicios al adapter de ice
+	    // adapter -> server stub 
             adapter.add(publisher, Util.stringToIdentity("Publisher"));
 
             // activate adapter
