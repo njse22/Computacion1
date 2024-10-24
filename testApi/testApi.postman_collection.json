@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "8d47d6bb-be81-4296-9720-b2050a810769",
+		"name": "testApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "7229517"
+	},
+	"item": [
+		{
+			"name": "localhost:5000/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "localhost:5000/"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:5000/users"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"data from postman\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:5000/users"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/db",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "localhost:5000/db"
+			},
+			"response": []
+		}
+	]
+}
