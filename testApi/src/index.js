@@ -2,7 +2,7 @@
 const express = require("express")
 
 // Modulos de la aplicación 
-const user = require("./controller/user")
+const user = require("./controller/usercontroller")
 const db = require("./connection/dbconnection")
 
 const app = express()
@@ -36,7 +36,11 @@ app.get("/users", user.list )
 // :id -> string = 23, LLL, nombre, ABFBBC
 app.get("/users/:id", user.get )
 
-app.post("/users/:id", user.modify )
+app.post("/users/", user.create)
+
+app.put("/users/:id", user.update)
+
+app.delete("/users/:id", user.delete)
 
 
 app.get("/", (req, res) => {

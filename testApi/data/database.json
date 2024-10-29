@@ -1,4 +1,15 @@
 {
-    "name": "Hola",
-    "age": 5
+  "users": [
+    {
+      "name": "UserModify",
+      "email": "userM@mail.com",
+      "id": 1
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ]
 }
