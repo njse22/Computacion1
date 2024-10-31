@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Test Api Users</title>
+    </head>
+    <body>
+
+	<form id="user-form">
+	    <input type="hidden" id="user-id">
+	    <label for="name"> Nombre: </label>
+	    <input type="text" id="name" required>
+	    <label for="email"> Email: </label>
+	    <input type="text" id="email" required>
+	    <button type="submit"> Guardar </button>
+	</form>
+
+	<button onClick="listUsers()"> listar </button>
+
+	<div id="users-list"></div>
+
+	<script src="index.js"></script>
+	
+    </body>
+</html>

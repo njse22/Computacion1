@@ -1,15 +1,34 @@
 {
   "users": [
     {
-      "name": "UserModify",
-      "email": "userM@mail.com",
+      "name": "Nuevo Usuario",
+      "email": "USER@correo.com",
       "id": 1
     },
     {
+      "name": "nn",
+      "email": "mm@mail.com",
       "id": 2
     },
     {
+      "name": "nn",
+      "email": "mm@mail.com",
       "id": 3
+    },
+    {
+      "name": "Nuevo Usuario",
+      "email": "NN@Gmail.com",
+      "id": 4
+    },
+    {
+      "name": "userPost",
+      "email": "userPost@correo.com",
+      "id": 5
+    },
+    {
+      "name": "www",
+      "email": "www@correo.com",
+      "id": 6
     }
   ]
 }

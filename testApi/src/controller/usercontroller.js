@@ -43,32 +43,57 @@ const UserController = {
 	}
     }, 
     update: (req, res) => {
-	const db = dbConnection.readDB(); 
-	const userData = req.body
-	const id = parseInt(req.params.id)
 
-	// Validaciones de los tipos de datos
-	//console.log(id == 1)
-	//console.log(id == '1')
-	//console.log(id === 1)
-	//console.log(id === '1')
+	try{
+	    const db = dbConnection.readDB(); 
+	    const userData = req.body
+	    const id = parseInt(req.params.id)
 
-	const index = db.users.findIndex(user => user.id === id)
-	db.users[index] = {...userData, id}
-	dbConnection.writeDB(db)
-	res.status(204).send()
+	    // Validaciones de los tipos de datos
+	    //console.log(id == 1)
+	    //console.log(id == '1')
+	    //console.log(id === 1)
+	    //console.log(id === '1')
+
+	    const index = db.users.findIndex(user => user.id === id)
+
+	    if(index === -1){
+		res.status(404).json({error: "User Not Found"})
+	    }
+	    else{
+		db.users[index] = {...userData, id}
+		dbConnection.writeDB(db)
+		res.status(204).send()
+	    }
+
+	}
+	catch(err){
+	    res.status(500).json({error: err.message})
+	}
+
     },
 
     delete: (req, res) => {
 
-	const db = dbConnection.readDB(); 
-	const id = parseInt(req.params.id)
+	try{
 
-	const index = db.users.findIndex(user => user.id === id)
-	db.users.splice(index, 1)
-	dbConnection.writeDB(db)
+	    const db = dbConnection.readDB(); 
+	    const id = parseInt(req.params.id)
 
-	res.status(204).send()
+	    const index = db.users.findIndex(user => user.id === id)
+	    if(index === -1){
+		res.status(404).json({error: "User Not Found"})
+	    }
+
+	    else{
+		db.users.splice(index, 1)
+		dbConnection.writeDB(db)
+		res.status(204).send()
+	    }
+	}
+	catch(err){
+	    res.status(500).json({error: err.message})
+	}
     }
 }
 

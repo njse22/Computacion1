@@ -1,5 +1,7 @@
 // se importa la librería necesaria para la creación del API
 const express = require("express")
+const path = require("path")
+const cors = require("cors")
 
 // Modulos de la aplicación 
 const user = require("./controller/usercontroller")
@@ -9,6 +11,8 @@ const app = express()
 
 // Se usa para leer el "body" de la solicitud del cliente
 app.use(express.json())
+
+app.use(cors())
 
 const port = 5000
 
@@ -71,5 +75,10 @@ app.delete("/", (req, res) => {
     console.log(req.method)
     res.status(204).send("Deleted ")
 })
+
+
+app.get("*", (req, res) => {
+    res.status(404).sendFile(path.join(__dirname, "..", "public", "notfound.html"))
+} )
 
 app.listen(port)
